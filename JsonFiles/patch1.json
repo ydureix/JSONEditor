@@ -1,0 +1,22 @@
+{
+  "type": "PATCH",
+  "fromVersion": "v1",
+  "toVersion": "v2",
+  "hash": "sha1:abcd...",
+  "data":[
+    {
+      "campaign_id": "custA-42",
+      "priority": 50,
+      "targeting": {
+        "routes": [
+          { "origin": "LAX", "destination": "NRT" }
+        ],
+        "flight_duration_min": 500,
+        "flight_duration_max": 900,
+        "time_of_day": ["evening", "red_eye"],
+        "audience_tags": ["business", "economy"]
+      },
+      "frequency_cap": 2
+    }
+  ]
+}

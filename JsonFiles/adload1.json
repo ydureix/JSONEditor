@@ -1,0 +1,52 @@
+{
+  "type": "FULL",
+  "version": "v1",
+  "parent": null,
+  "hash": "sha1:abcd...",
+  "data":[
+    {
+      "campaign_id": "custA-42",
+      "priority": 80,
+      "targeting": {
+        "routes": [
+          { "origin": "LAX", "destination": "NRT" },
+          { "origin": "SFO", "destination": "HND" }
+        ],
+        "flight_duration_min": 360,
+        "flight_duration_max": 900,
+        "time_of_day": ["evening", "red_eye"],
+        "audience_tags": ["business", "economy"]
+      },
+      "frequency_cap": 2
+    },
+    {
+      "campaign_id": "custA-32",
+      "priority": 50,
+      "targeting": {
+        "routes": [
+          { "origin": "ONT", "destination": "SZN" },
+          { "origin": "HAI", "destination": "TOK" }
+        ],
+        "flight_duration_min": 590,
+        "flight_duration_max": 1000,
+        "time_of_day": ["evening"],
+        "audience_tags": ["business"]
+      },
+      "frequency_cap": 2
+    },
+    {
+      "campaign_id": "custD-22",
+      "priority": 60,
+      "targeting": {
+        "routes": [
+          { "origin": "LAX", "destination": "NRT" }
+        ],
+        "flight_duration_min": 40,
+        "flight_duration_max": 500,
+        "time_of_day": ["afternoon"],
+        "audience_tags": ["firstClass"]
+      },
+      "frequency_cap": 5
+    }
+  ]
+}
