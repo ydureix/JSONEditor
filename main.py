@@ -1,4 +1,5 @@
 import json
+import copy
 
 
 def modify_ad_load(ad_load, patch):
@@ -16,14 +17,24 @@ def modify_ad_load(ad_load, patch):
             if p_campaign['campaign_id'] == o_campaign['campaign_id']:
                 o_campaign.update(p_campaign)
 
+    #Create a snapshot of parent and set 'parent' equal to it
+    parent_snapshot = copy.deepcopy(original_data)
+    original_data['parent'] = parent_snapshot
+
     original_data['version'] = patch_data['toVersion']
-    original_data['parent'] = original_data
+    #Update original_data with new information
+    with open(ad_load, "w") as f:
+        json.dump(original_data, f, indent=2)
 
 
 def rollback(ad_load):
-    pass
+    with open(ad_load) as f:
+        current_data = json.load(f)
+    current_data.update(current_data['parent'])
+    print(current_data)
 
 if __name__ == '__main__':
     original_load = "JsonFiles/adload1.json"
     patch1 = "JsonFiles/patch1.json"
     modify_ad_load(original_load, patch1)
+    rollback(original_load)
